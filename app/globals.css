@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-canvas: #FAF8F4;
+  --color-canvas-card: #FFFFFF;
+  --color-ink: #1B1C1D;
+  --color-ink-muted: #54565A;
+  --color-ink-subtle: #8A8C8E;
+  --color-border: #DAD8CE;
+  --color-border-subtle: #E8E6DD;
+  --color-primary: #0D6199;
+  --color-accent-amber: #D9A345;
+  --color-accent-teal: #1C8B82;
+  --color-accent-sage: #5F8763;
+  --color-accent-terracotta: #C85A32;
+  --color-accent-yellow: #E7E72B;
+  --color-tedx: #EB0028;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-canvas);
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Film Grain Noise Texture (Matching Gladeye Walton Microsite) */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Typography Hierarchy (Exact Walton Opportunity Styling) */
+.font-editorial {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.font-editorial-compressed {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-stretch: condensed;
+  letter-spacing: -0.01em;
+}
+
+.font-sans-clean {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ==========================================================================
+   Hardware-Accelerated Fluid Float Physics (Walton Microsite Replica)
+   Executed on GPU Compositor Thread for steady 60-120fps with Zero Lag
+   ========================================================================== */
+@keyframes walton-float-center {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes walton-float-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translate3d(6px, -12px, 0) rotate(calc(var(--rot, 0deg) + 1.8deg));
+  }
+}
+
+@keyframes walton-float-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translate3d(-8px, 14px, 0) rotate(calc(var(--rot, 0deg) - 2deg));
+  }
+}
+
+@keyframes walton-float-3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translate3d(9px, 9px, 0) rotate(calc(var(--rot, 0deg) + 1.5deg));
+  }
+}
+
+@keyframes walton-float-4 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translate3d(-7px, -11px, 0) rotate(calc(var(--rot, 0deg) - 1.6deg));
+  }
+}
+
+@keyframes walton-float-tile {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translate3d(5px, -8px, 0) rotate(calc(var(--rot, 0deg) + 3deg));
+  }
+}
+
+.anim-float-center {
+  animation: walton-float-center 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-float-1 {
+  animation: walton-float-1 7.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-float-2 {
+  animation: walton-float-2 8.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-float-3 {
+  animation: walton-float-3 7.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-float-4 {
+  animation: walton-float-4 8.9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-float-tile {
+  animation: walton-float-tile 6.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Parenthetical Chapter Badge ( · 01 · ) */
+.chapter-badge {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #54565A;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Gladeye Signature Split-Letter Hover Pill Button */
+.walton-pill-btn {
+  background-color: #FFFFFF;
+  color: #1B1C1D;
+  border: 1px solid #DAD8CE;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.walton-pill-btn:hover {
+  background-color: #1B1C1D;
+  color: #FFFFFF;
+  border-color: #1B1C1D;
+  transform: translateY(-1px);
+}
+
+.walton-pill-btn-primary {
+  background-color: #0D6199;
+  color: #FFFFFF;
+  border: 1px solid #0D6199;
+  border-radius: 9999px;
+  padding: 9px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.walton-pill-btn-primary:hover {
+  background-color: #1C8B82;
+  border-color: #1C8B82;
+  transform: translateY(-1px);
+}
+
+/* Custom Scrollbar for Magazine Feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #DAD8CE;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A8C8E;
+}
